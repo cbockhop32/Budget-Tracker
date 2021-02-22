@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@import 'config';
+@import 'utilities';
+@import 'buttons';
+@import 'responsive';
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: color(light);
+    font-family: $font-stack;
+    line-height: 1.6;
+    font-weight: 300;
+    height: 100vh;
+    overflow: hidden;
+    
+
+    .background {
+        clip-path: polygon(0 0, 78% 0, 61% 100%, 0% 100%);
+        background-color: color(primary);
+        width: 100%;
+        height:100%;
+        position: absolute;
+        z-index: -1;
+
+        @include mobile {
+            clip-path: polygon(79% 0, 100% 0, 100% 100%, 43% 100%, 0 100%, 0 30%);
+        }
+    }
+}
+
+header {
+    @include set-background(color(primary))
+
+}
+
+.main-content {
+    @include flexCenter(row);
+    align-items: stretch;
+    height: 100%;
+  
+
+    @include mobile {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+
+   
+
+    
+
+    .left-container {
+        flex:1;
+
+        @include mobile {
+            height: 30%;
+            padding-bottom: 1rem;
+        }
+
+        .left-content {
+            @include flexCenter(column);
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            
+
+            h2 {
+                margin-bottom: 0.5rem;
+                ;
+
+                @include mobile {
+                    font-size: 1rem;
+                }
+                @include tabletLaptop {
+                    font-size: 1.1rem;
+                }
+
+                span {
+                    color: darken(color(light), 10%);
+                }
+            }
+
+            .error-messages {
+                background-color: color(error);
+                width: 75%;
+                border-radius: 50px;
+                text-align: center;
+                line-height: 1.8;
+                padding: 0.5rem 0.2rem;
+
+                transform: translateX(-150%);
+
+                transition: transform 0.5s ease-out;
+
+                @include mobile {
+                    font-size: 0.5rem;
+                    width: 80%;
+                }
+
+                @include tabletLaptop {
+                    width: 90%;
+                    
+                }
+
+                &.show {
+                    transform: translateX(0);
+                }
+            
+                
+            }
+
+            .input-content {
+                @include flexCenter(column);
+                padding-top: 1rem;
+                width: 100%;
+
+                @include mobile {
+                    padding-top: 0.5rem;
+                }
+
+                .top-inputs {
+                    display: flex;
+                    justify-content: space-evenly;
+                    width: 80%;
+
+                    @include mobile {
+                        width: 100%;
+                    }
+
+                    @include tabletLaptop {
+                        width: 100%;
+                    }
+
+                  
+                }
+
+
+                form {
+                    margin-top: 5rem;
+                    position: relative;
+                    width: 300px;
+                    padding: 0;
+
+
+                    @include mobile {
+                        margin-top: 1rem;
+                        width: 50%;
+                    }
+
+                    @include tabletLaptop {
+                        width: 65%;
+                    }
+                }
+            }
+
+         
+        }
+
+
+    }
+
+    .right-container {
+        @include flexCenter(row);
+        flex: 2;
+        height: 100%;
+        
+
+        @include mobile {
+            max-height: 70%;
+        }
+       
+
+        .right-content {
+            @include flexCenter(column);
+            // justify-content: flex-start;
+            background-color: color(light);
+            width: 80%;
+            height: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) ;
+            border-radius: 0.5rem;
+            position: relative;
+
+            @include mobile {
+                width: 90%;
+                height: 95%;
+            }
+            
+         
+        
+
+            .right-content-header {
+                @include flexCenter(row);
+                justify-content: flex-end;
+                width: 100%;
+                height: 10%;
+                padding: 0.5rem;
+
+                @include mobile {
+                    height: 5%;
+                }
+                
+
+               
+            
+                
+            }
+
+            .budget-content {
+                width: 95%;
+                height: 90%;
+                @include flexCenter(column);
+                justify-content: flex-start;
+                
+                overflow: auto;
+                // border: 1px solid black;
+                padding-bottom: 1rem;
+                margin-bottom: 0.5rem;
+
+                @include mobile {
+                    width: 100%;
+                    max-height: 100%;
+                }
+
+                &::-webkit-scrollbar {
+                    width: 8px;
+                }
+
+                &::-webkit-scrollbar-track {
+                    border-radius: 5px;
+                    background-color: lighten(color(primary), 30%);
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 5px;
+                    background-color: color(primary);
+                }
+                
+                
+                
+            
+               
+                
+
+                h3 {
+                   align-self: flex-start;
+                   margin-left: 5rem;
+                   color: color(primary);
+                   font-size: 1.5rem;
+
+                   @include mobile {
+                       font-size: 1rem;
+                       margin-left: 1rem;
+                   }
+
+                   @include tabletLaptop {
+                       margin-left: 2rem;
+                   }
+                }
+
+
+               .savings {
+                    @include flexCenter(column);
+                    justify-content: space-between;
+                    width: 50%;
+                    background-color: lighten(color(primary),20%);
+                    border-radius: 20px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    padding: 0.5rem 0;
+                    margin: 0.5rem 0;
+                    
+                    
+
+                    @include mobile {
+                        width: 80%;
+                    }
+
+                    @include tabletLaptop {
+                        width: 70%;
+                    }
+                   
+                    
+                    h2 {
+                        margin: 0;
+                        align-self: center;
+
+                        @include mobile {
+                            font-size: 1rem;
+                        }
+                       
+                    
+                    }
+
+                    
+
+
+                    .savings-content {
+                        @include flexCenter(row);
+                        justify-content: space-between;
+                        width: 70%;
+
+
+                        @include mobile {
+                            width: 90%;
+                        }
+
+                      
+                       
+                        
+    
+                        .savings-labels, .savings-data {
+                            @include flexCenter(column);
+
+
+                            strong {
+                                @include mobile {
+                                    font-size: 0.8rem;
+                                }
+                            }
+                            
+                        }
+                    }
+
+                }
+
+              
+              
+
+               
+            }
+        }
+    }
+}
+

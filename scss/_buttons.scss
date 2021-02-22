@@ -1,0 +1,199 @@
+// Utility classes for buttons
+
+// Use lighten() or darken() functionality with the buttons
+
+
+%input {
+    border-radius: 50px;
+    padding: 16px 16px;
+    border:none;
+    text-align: left;
+    font-family: $font-stack;
+    font-size: 1rem;
+
+    &:focus {
+        outline: none;
+    }
+
+    @include mobile {
+        padding: 10px 10px;
+        font-size: 0.8rem;
+    }
+
+    @include tabletLaptop {
+        padding: 12px 12px;
+        font-size: 0.8rem;
+      
+    }
+}
+
+%btn {
+    background-color: lighten(color(primary),15%);
+    border: 0;
+    border-radius: 50px;
+    color: color(light);
+    padding: 14px 24px; 
+    cursor: pointer;
+    font-family: $font-stack;
+    outline: none;
+    font-size: 1rem;
+
+    &:active {
+        transform: scale(0.95);
+        background-color: color(primary);
+        
+    }
+
+    @include mobile {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+
+    @include tabletLaptop {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+
+    }
+}
+
+%btn-item {
+    color: color(primary);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    margin-left: 0.3rem;
+    opacity: 0.3;
+    
+
+
+    &:active {
+       transform: scale(0.95);
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    
+}
+
+
+%error {
+    &.error {
+      
+        background-color: color(error);
+        color: darken(color(error), 40%);
+    }
+}
+
+
+%btn-view {
+    padding: 7px 10px; 
+    font-size: 0.7rem;
+
+    
+    @include mobile {
+        padding: 3px 6px;
+        font-size: 0.5rem;
+    }
+    
+}
+
+.input-text {
+    @extend %input;
+    @include tabletLaptop {
+        width: 50%;
+    }
+
+
+    @extend %error;
+}
+
+.input-select {
+    @extend %input;
+
+    cursor: pointer;
+}
+
+.input-dollar {
+    @extend %input;
+    width: 100%;
+
+    @extend %error;
+
+   
+}
+
+.btn-add {
+    @extend %btn;
+
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.btn-monthly {
+    @extend %btn;
+    @extend %btn-view;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 1px;
+
+    &.selected {
+        color: black;
+        font-weight: bold;
+        border: black 2px solid;
+    }
+
+
+    
+}
+
+.btn-annually {
+    @extend %btn;
+    @extend %btn-view;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 1px;
+
+    &.selected {
+        color: black;
+        font-weight: bold;
+        border: black 2px solid;
+    }
+}
+
+.btn-delete {
+    @extend %btn-item;
+
+    @include mobile {
+        font-size: 0.8rem;
+    }
+    
+}
+
+.btn-drag {
+    @extend %btn-item;
+    position: relative;
+
+    .item-note {
+        position: absolute;
+        bottom: 30px;
+        right: 5px;
+        border: 1px solid black;
+        width: 100px;
+        visibility: hidden;
+
+    }
+
+    .item-note.visibile {
+        visibility: visible;
+    }
+
+    @include mobile {
+        font-size: 0.8rem;
+    }
+}

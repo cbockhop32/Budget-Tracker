@@ -1,0 +1,69 @@
+
+$font-stack:'Poppins', sans-serif;
+$font-weight: 700;
+$mobile: 300px;
+$tablet: 900px;
+$laptop: 1300px;
+
+
+
+
+
+$colors: (
+    primary:#005dff,
+    secondary: #ff8700,
+    light: #f4f4f4,
+    error: #FFD2D2
+);
+
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+};
+
+
+// Display Flex with justify-content and aling-items at center
+
+@mixin flexCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin mobile {
+    @media(min-width: $mobile) and (max-width:$tablet) {
+        @content;
+    }
+}
+
+@mixin tabletLaptop {
+    @media(min-width: $tablet) and (max-width: $laptop) {
+        @content;
+    }
+}
+
+
+
+
+
+
+
+
+
+// Set text color based on background
+
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {   
+        @return #fff;
+    }
+}
+
+// Set background & text color
+
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color)
+}

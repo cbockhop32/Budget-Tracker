@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://kit.fontawesome.com/8dca4a3d48.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="background"></div>
+
+   
+    <div class="main-content">
+        <div class="left-container">
+            <div class="left-content">
+               
+                <h2>Add <span id="input-note">Monthly</span> Income/Expense Items Below</h2>
+                <div class="error-messages" id="error-messages"></div>
+                <div class="input-content">
+                    <div class="top-inputs">
+                        <input type="text" id="item-name" class="input-text" placeholder="Item name">
+                        <select id="item-type" class="input-select">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
+                    </div>
+                    
+                    <form id="form">
+                        <input type="number" min="0.01" step="0.01" id="item-dollar" class="input-dollar" placeholder="Dollar amount">
+                        <button class="btn-add" id="btn-add">Add</button>
+                    </form>
+
+                </div>
+               
+            </div>
+
+            
+        </div>
+    
+        <div class="right-container">
+            <div class="right-content">
+                <div class="right-content-header">
+                    <button class="btn-monthly selected" id="btn-monthly">Monthly</button>
+                    <button class="btn-annually" id="btn-annually">Annual</button>
+                </div>
+
+                <div class="budget-content">
+                    <h3>Income <i class="fas fa-coins"></i></h3>
+
+                  
+
+                    <div class="data income" id="income" data-type="income">
+
+                        <div class="item-container">
+
+
+                            
+
+                            <div class="item-name">
+                                <strong>Add Income Items</strong>
+                            </div>
+
+                            
+                        </div>
+
+
+                        <div class="item-container">
+                            <div class="item-name">
+                                <strong>Total Income</strong>
+                            </div>
+
+                            <div class="item-value">
+                                <span>-</span>
+                                <i class="fas fa-bars btn-drag"></i>
+                                <button class="btn-delete" id="btn-delete"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    
+
+                    <h3>Expenses <i class="fas fa-file-invoice-dollar"></i></h3>
+                    <div class="data expenses" id="expenses" data-type="expense">
+                        <div class="item-container">
+                            <div class="item-name">
+                                <strong>Add Expense Items</strong>
+                            </div>
+
+                            <div class="item-value">
+                                <span></span>
+                               
+                            </div>
+                        </div>
+                       
+
+
+
+
+                        <div class="item-container">
+                            <div class="item-name">
+                                <strong>Total Expenses</strong>
+                            </div>
+
+                            <div class="item-value">
+                                <span>-</span>
+                                <i class="fas fa-bars btn-drag"></i>
+                                <button class="btn-delete" id="btn-delete"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                     
+                        
+                        
+                        
+                    </div>
+
+                    
+
+                    <div class="savings">
+                        <h2>Savings <i class="fas fa-hand-holding-usd"></i></h2>
+                      
+                        <div class="savings-content">
+                            <div class="savings-labels">
+                                <strong>Total Savings</strong>
+                                <strong>% of Total Income</strong>
+                                <div class="annual-savings">
+                                    <strong id="total-savings-annual-label">Annual Savings</strong>
+                                </div>
+                            </div>
+
+                            <div class="savings-data">
+                                <strong id="total-savings">-</strong>
+                                <strong id="savings-percentage">-</strong>
+                                <div class="annual-savings">
+                                    <strong id="total-savings-annual">-</strong>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        
+                    </div>
+
+                    
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+ 
+
+
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
