@@ -12,6 +12,4 @@ Use this tool to keep track of your monthly/annual income and expenses.
 
 4) Click 'Add' to add that specific item to the budget on the right
 
-## Other Comments
 
-- 
