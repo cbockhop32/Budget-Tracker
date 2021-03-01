@@ -179,19 +179,6 @@
     @extend %btn-item;
     position: relative;
 
-    .item-note {
-        position: absolute;
-        bottom: 30px;
-        right: 5px;
-        border: 1px solid black;
-        width: 100px;
-        visibility: hidden;
-
-    }
-
-    .item-note.visibile {
-        visibility: visible;
-    }
 
     @include mobile {
         font-size: 0.8rem;

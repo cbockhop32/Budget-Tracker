@@ -22,9 +22,9 @@ let dragBegIndex;
 let dragBegType;
 
 function getItemData() {
-    const name = itemName.value; 
-    const type = itemType.value;
-    const amount = +itemAmount.value;
+    let name = itemName.value; 
+    let type = itemType.value;
+    let amount = +itemAmount.value;
     let messages = [];
 
     if(name === '' || name == null) {
@@ -60,6 +60,9 @@ function addItemToArray(name,type,amount) {
 
     type === 'income' ? incomeList.push(item) : expenseList.push(item);
 
+    itemName.value = '';
+    itemAmount.value = '';
+
     updateBudget();
 }
 
@@ -79,9 +82,7 @@ function updateBudget() {
                 </div>
                 <div class="item-value">
                     <span>${formatMoney(item.value)}</span>
-                    <i class="fas fa-bars btn-drag">
-                        <div class="item-note">Herro</div>
-                    </i>
+                    <i class="fas fa-arrows-alt btn-drag"></i>
                     <button class="btn-delete" id="btn-delete">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -96,7 +97,7 @@ function updateBudget() {
 
                 <div class="item-value">
                     <strong id="total-income"></strong>
-                    <i class="fas fa-bars btn-drag"></i>
+                    <i class="fas fa-arrows-alt btn-drag"></i>
                     <button class="btn-delete"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
@@ -111,7 +112,7 @@ function updateBudget() {
                 </div>
                 <div class="item-value">
                     <span>${formatMoney(item.value)}</span>
-                    <i class="fas fa-bars btn-drag"></i>
+                    <i class="fas fa-arrows-alt btn-drag"></i>
                     <button class="btn-delete" id="btn-delete">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -126,7 +127,7 @@ function updateBudget() {
 
                 <div class="item-value">
                     <strong id="total-expenses"></strong>
-                    <i class="fas fa-bars btn-drag"></i>
+                    <i class="fas fa-arrows-alt btn-drag"></i>
                     <button class="btn-delete"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
@@ -361,16 +362,10 @@ function formatMoney(number) {
 
 function addBtnListeners() {
     const deleteBtns = document.querySelectorAll('#btn-delete');
-    const dragBtns = document.querySelectorAll('.btn-drag');
+
     deleteBtns.forEach(btn => btn.addEventListener('click', e => deleteItem(e.target)))
     
-    dragBtns.forEach(btn => btn.addEventListener('click', e => {
-        const noteDiv = e.target.firstElementChild;
-
-        noteDiv.classList.toggle('visibile')
-
-
-    }));
+ 
 }
 
 
